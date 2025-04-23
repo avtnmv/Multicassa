@@ -314,6 +314,8 @@ header{
         border-radius: 10px;
         display: flex;
         gap: 30px;
+        position: relative;
+        z-index: 100000;
     }
     .column{
         display: flex;
