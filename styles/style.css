@@ -38,7 +38,7 @@
 
 .wrapper{
     background-image: url(../images/desktop-bg.jpg);
-    height: 1300px;
+    height: auto;
     background-size: cover;
     padding-top: 115px;
     padding-left: 120px;
@@ -97,33 +97,29 @@ header{
 .slider-icon{
     padding-top: 5px;
 }
-.button-one{
-    background-image: url(../images/button-bg-one.svg);
+.button-one,
+.button-two {
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-repeat: no-repeat;
     width: 350px;
     height: 85px;
-    color: white;
     font-family: 'Atyp Display';
     font-size: 14px;
     font-weight: 600;
+    animation: pulse 2s infinite;
 }
-.button-two{
+
+.button-one {
+    background-image: url(../images/button-bg-one.svg);
+    color: white;
+}
+
+.button-two {
     background-image: url(../images/button-bg-two.svg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-repeat: no-repeat;
-    width: 350px;
-    height: 85px;
     color: black;
-    font-family: 'Atyp Display';
-    font-size: 14px;
-    font-weight: 600;
 }
 .buttons-container{
     display: flex;
@@ -209,14 +205,24 @@ header{
 .footer-button{
     display: none;
 }
+.offices-container{
+    margin-top: 20px;
+}
+.card{
+    width: 210px;
+}
+.footer-subtitle{
+    padding-bottom: 20px;
+}
 @media (max-width: 768px) {
 
     .wrapper{
         background-image: url(../images/mobile-bg.png);
         padding-left: 0;
         margin: auto;
-        padding-top: 210px;
+        padding-top: 230px;
         overflow-x: hidden;
+        background-position: center;
        
     }
     .buttons-container-mobile{
@@ -256,9 +262,7 @@ header{
         margin: auto;
         margin-top: 20px;
     }
-    .buttons-container{
-        display: none;
-    }
+
     .buttons-container-img{
         display: block;
         margin: auto;
@@ -272,7 +276,6 @@ header{
         font-style: normal;
         font-size: 40px;
         text-align: center;
-        margin-top: -195px;
       }
       .second-subtitle {
         color: black;
@@ -340,6 +343,7 @@ header{
         font-weight: 600;
         margin: auto;
         margin-top: 20px;
+        animation: glitch 2s infinite;
     }
     .footer-title{
         font-size: 14px;
@@ -350,4 +354,50 @@ header{
         font-size: 14px;
         text-align: center;
     }
+    .offices-container img{
+        width: 170px;
+    }
+    .offices-container{
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .buttons-container{
+        flex-direction: column;
+    }
+    .button-one, .button-two{
+        width: 320px;
+        background-size: contain;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes glitch {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-2px, 2px); }
+    20% { transform: translate(-2px, -2px); }
+    30% { transform: translate(2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    50% { transform: translate(-1px, 1px); }
+    60% { transform: translate(1px, -1px); }
+    70% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, 1px); }
+    90% { transform: translate(0, -2px); }
+    100% { transform: translate(0, 0); }
   }
