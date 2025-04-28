@@ -43,3 +43,10 @@ let swiper = new Swiper('.mySwiper', {
   
 
   
+// Ловим элементы
+const fabWrapper = document.getElementById('fabWrapper');
+
+// При клике добавляем или убираем класс "active"
+fabWrapper.addEventListener('click', function() {
+  fabWrapper.classList.toggle('active');
+});

@@ -120,6 +120,7 @@ header{
 .button-two {
     background-image: url(../images/button-bg-two.svg);
     color: black;
+    animation-direction: alternate-reverse;
 }
 .buttons-container{
     display: flex;
@@ -214,6 +215,99 @@ header{
 .footer-subtitle{
     padding-bottom: 20px;
 }
+
+
+
+
+.fab-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+  }
+  
+  .fab-main {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .fab-main .plus {
+    font-size: 32px;
+    color: white;
+    transition: transform 0.3s;
+  }
+  
+  .fab-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.2s ease;
+    gap: 10px;
+  }
+  
+  .fab-button {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .fab-button img {
+    width: 60%;
+    height: 60%;
+  }
+  
+.whatsapp{
+    background-color: rgb(117, 251, 76);
+}
+.whatsapp svg{
+    width: 30px;
+}
+.telegram{
+    background-color: #007bff;
+}
+.telegram svg{
+    width: 30px;
+}
+  
+  /* Активное состояние кнопок */
+  .fab-wrapper.active .fab-buttons {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  /* Поворот плюса в крест */
+  .fab-wrapper.active .plus {
+    transform: rotate(45deg);
+  }
+  
+
+
+
+
+
 @media (max-width: 768px) {
 
     .wrapper{
@@ -318,7 +412,6 @@ header{
         display: flex;
         gap: 30px;
         position: relative;
-        z-index: 100000;
     }
     .column{
         display: flex;
@@ -348,7 +441,10 @@ header{
     .footer-title{
         font-size: 14px;
         text-align: center;
+        margin: auto;
+        width: 320px;
         margin-top: 20px;
+        margin-bottom: 10px;
     }
     .footer-subtitle{
         font-size: 14px;
@@ -372,22 +468,54 @@ header{
         width: 320px;
         background-size: contain;
     }
+
+    .fab-wrapper {
+        position: fixed;
+        bottom: 30px;
+        right: 5px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 15px;
+        z-index: 1000;
+      }
+      .fab-main {
+        width: 50px;
+        height: 50px;
+        background-color: #007bff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+      .fab-button{
+        width: 50px;
+        height: 50px;
+      }
   }
 
   @keyframes pulse {
     0% {
-      transform: scale(1);
-      opacity: 1;
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
     }
     50% {
-      transform: scale(1.03);
-      opacity: 0.9;
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
     }
     100% {
-      transform: scale(1);
-      opacity: 1;
+      transform: translateX(0);
     }
   }
+  
   @keyframes glitch {
     0% { transform: translate(0, 0); }
     10% { transform: translate(-2px, 2px); }
